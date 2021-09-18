@@ -12,9 +12,9 @@ import { NotImplementedError } from '../extensions/index.js';
  * createDreamTeam(['Matt', 'Ann', 'Dmitry', 'Max']) => 'ADMM'
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
- */
- export default function createDreamTeam(names) {
-    if(!Array.isArray(names)) return false
+*/
+export default function createDreamTeam(names) {
+    if (!Array.isArray(names)) return false
     let code = names.reduce((acc, name) => {
         return (typeof (name) === 'string')
             ? acc += name.trim()[0].toUpperCase()

@@ -3,8 +3,8 @@ import { NotImplementedError } from '../extensions/index.js';
 /**
  * Implement chainMaker object according to task description
  *
- */
- export default {
+*/
+export default {
     stack: [],
     getLength() {
         return this.stack.length;
@@ -16,9 +16,9 @@ import { NotImplementedError } from '../extensions/index.js';
     removeLink(position) {
         if (
             typeof (position) !== 'number'
-                || position % Math.floor(position) !== 0
-                || position <= 0
-                || position >= this.stack.length
+            || position % Math.floor(position) !== 0
+            || position <= 0
+            || position >= this.stack.length
         ) {
             this.stack = [];
             throw new Error("You can't remove incorrect link!");

@@ -14,8 +14,8 @@ import { NotImplementedError } from '../extensions/index.js';
  * addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00' })
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
- */
- export default function repeater( str, options ) {
+*/
+export default function repeater(str, options) {
     let newStr = str;
     let substr = '';
     let newOptions = {

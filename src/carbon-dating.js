@@ -16,8 +16,8 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('1') => 22387
  * dateSample('WOOT!') => false
  *
- */
- export default function dateSample(sampleActivity) {
+*/
+export default function dateSample(sampleActivity) {
     if (
         typeof (sampleActivity) !== 'string'
         || sampleActivity.trim() === ''
@@ -30,6 +30,6 @@ const HALF_LIFE_PERIOD = 5730;
     let years = HALF_LIFE_PERIOD * Math.log2(MODERN_ACTIVITY / +sampleActivity);
 
     return (years <= 0)
-                ? false
-                : Math.ceil(years);
+        ? false
+        : Math.ceil(years);
 }

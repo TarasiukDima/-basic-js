@@ -11,14 +11,14 @@ import { NotImplementedError } from '../extensions/index.js';
  * depthCalc.calculateDepth([1, 2, 3, [4, 5]]) => 2
  * depthCalc.calculateDepth([[[]]]) => 3
  *
- */
- export default class DepthCalculator {
+*/
+export default class DepthCalculator {
     calculateDepth(arr) {
         let count = 1;
         let deep = 0;
         let gapDeep = 0;
 
-        for (let i = 0; i < arr.length; i++){
+        for (let i = 0; i < arr.length; i++) {
             if (Array.isArray(arr[i])) {
                 gapDeep = this.calculateDepth(arr[i])
                 if (gapDeep > deep) deep = gapDeep;

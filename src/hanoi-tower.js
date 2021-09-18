@@ -13,8 +13,8 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  * calculateHanoi(9, 4308) => { turns: 511, seconds: 427 }
  *
- */
- export default function calculateHanoi( disksNumber, turnsSpeed ) {
+*/
+export default function calculateHanoi(disksNumber, turnsSpeed) {
     let result = {
         turns: countTurns(disksNumber),
         seconds: 0

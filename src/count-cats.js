@@ -13,8 +13,8 @@ import { NotImplementedError } from '../extensions/index.js';
  *  ['^^', 1, 2]
  * ]) => 3`
  *
- */
- export default function countCats(matrix) {
+*/
+export default function countCats(matrix) {
     return matrix.reduce((acc, el) => {
         if (Array.isArray(el)) {
             let count = 0;
@@ -25,5 +25,5 @@ import { NotImplementedError } from '../extensions/index.js';
         }
 
         if (el == '^^') return acc += 1;
-    },0)
+    }, 0)
 }
