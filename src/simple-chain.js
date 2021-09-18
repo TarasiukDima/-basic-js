@@ -2,27 +2,38 @@ import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * Implement chainMaker object according to task description
- * 
+ *
  */
-export default {
-  getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  },
-  reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  },
-  finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+ export default {
+    stack: [],
+    getLength() {
+        return this.stack.length;
+    },
+    addLink(value = '') {
+        this.stack.push('( ' + value + ' )')
+        return this;
+    },
+    removeLink(position) {
+        if (
+            typeof (position) !== 'number'
+                || position % Math.floor(position) !== 0
+                || position <= 0
+                || position >= this.stack.length
+        ) {
+            this.stack = [];
+            throw new Error("You can't remove incorrect link!");
+        } else {
+            this.stack = [...this.stack.slice(0, position - 1), ...this.stack.slice(position)];
+            return this;
+        }
+    },
+    reverseChain() {
+        this.stack.reverse();
+        return this;
+    },
+    finishChain() {
+        let s = this.stack;
+        this.stack = [];
+        return s.join('~~')
+    }
 };
