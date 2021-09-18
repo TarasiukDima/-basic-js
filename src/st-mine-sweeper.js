@@ -22,8 +22,32 @@ import { NotImplementedError } from '../extensions/index.js';
  *  [2, 1, 1],
  *  [1, 1, 1]
  * ]
- */
-export default function minesweeper (/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+*/
+export default function minesweeper(matrix) {
+    const searchMines = (matrix, i, y) => {
+        if (matrix[i][y] === true) return 1;
+        let count = 0;
+
+        if ((matrix[i].length - 2) > y && matrix[i][y + 1] === true) count++;
+        if (0 < y && matrix[i][y - 1] === true) count++;
+        if ((matrix.length - 2) > i && matrix[i + 1][y] === true) count++;
+        if ((matrix.length - 2) > i && (matrix[i].length - 2) > y && matrix[i + 1][y + 1] === true) count++;
+        if ((matrix.length - 2) > i && 0 < y && matrix[i + 1][y - 1] === true) count++;
+        if (0 < i && matrix[i - 1][y] === true) count++;
+        if (0 < i && (matrix[i].length - 2) > y && matrix[i - 1][y + 1] === true) count++;
+        if (0 < i && 0 < y && matrix[i - 1][y - 1] === true) count++;
+
+        return count;
+    }
+
+    let newMatrix = [];
+    for (let i = 0; i < matrix.length; i++) {
+        newMatrix[i] = [];
+        for (let y = 0; y < matrix[i].length; y++) {
+            let count = searchMines(matrix, i, y)
+            newMatrix[i].push(count);
+        }
+    }
+
+    return newMatrix;
 }

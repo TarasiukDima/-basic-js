@@ -21,8 +21,19 @@ import { NotImplementedError } from '../extensions/index.js';
  *   '.ru.yandex.music': 1,
  * }
  *
- */
-export default function getDNSStats(/* domains */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+*/
+export default function getDNSStats(domains) {
+    let dns = {};
+
+    domains.forEach((el) => {
+        let arr = el.split('.');
+        let lengthArr = arr.length;
+
+        for (let i = (lengthArr - 1); i >= 0; i--) {
+            let strDns = '.' + arr.slice(i).reverse().join('.');
+            dns[strDns] = (dns[strDns] + 1) || 1;
+        }
+    })
+
+    return dns;
 }
